@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace ProjectBUD.Cursor
 {
@@ -8,14 +9,14 @@ namespace ProjectBUD.Cursor
     {
         [SerializeField] private InputActionAsset _actionMap;
         
-        [SerializeField] private CursorRaycast cursorRaycast;
+        [SerializeField] private CursorInteract cursorInteract;
         
         private void Awake()
         {
             _actionMap.Enable();
             var action = _actionMap.FindAction("Attack");
             action.Enable();
-            action.started += cursorRaycast.Activate;
+            action.started += cursorInteract.Interact;
         }
     }   
 }

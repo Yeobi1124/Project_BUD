@@ -3,11 +3,12 @@ using UnityEngine.InputSystem;
 
 namespace ProjectBUD.Cursor
 {
-    public class CursorRaycast : MonoBehaviour
+    public class CursorInteract : MonoBehaviour
     {
         [SerializeField]
         private LayerMask layer;
-        public void Activate(InputAction.CallbackContext context)
+        
+        public void Interact(InputAction.CallbackContext context)
         {
             var mosPos = Mouse.current.position.ReadValue();
             mosPos = Camera.main.ScreenToWorldPoint(mosPos);

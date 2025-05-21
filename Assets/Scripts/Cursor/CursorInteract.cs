@@ -18,14 +18,26 @@ namespace ProjectBUD.Cursor
             {
                 IInteractableWithCursor interact = hit.collider.gameObject.GetComponent<IInteractableWithCursor>();
                 
-                // Todo : 중간에 저장되어있는지 여부 확인
-                
                 interact.Interact();
             }
             else
             {
                 Debug.Log("No IInteractableWithCursor");
                 Debug.Log(mosPos);
+            }
+        }
+
+        public void BringOut(InputAction.CallbackContext context)
+        {
+            var editor = EditorManager.Instance;
+
+            if (editor.IsEmpty == false)
+            {
+                var go = editor.GetBlock();
+                var mosPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+                go.transform.position = new Vector3(mosPos.x, mosPos.y, 0f);
+                go.SetActive(true);
             }
         }
     }   

@@ -14,9 +14,13 @@ namespace ProjectBUD.Cursor
         private void Awake()
         {
             _actionMap.Enable();
-            var action = _actionMap.FindAction("Attack");
-            action.Enable();
-            action.started += cursorInteract.Interact;
+            var interactAction = _actionMap.FindAction("Attack");
+            interactAction.Enable();
+            interactAction.started += cursorInteract.Interact;
+            
+            var bringOutAction = _actionMap.FindAction("Interact");
+            bringOutAction.Enable();
+            bringOutAction.started += cursorInteract.BringOut;
         }
     }   
 }

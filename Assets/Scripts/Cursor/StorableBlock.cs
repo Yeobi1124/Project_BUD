@@ -8,11 +8,7 @@ namespace ProjectBUD.Cursor
         {
             var editor = EditorManager.Instance;
 
-            if (editor.IsEmpty == true)
-            {
-                editor.Insert(gameObject);
-                gameObject.SetActive(false);
-            }
+            editor.Insert(gameObject);
         }
     }   
 }

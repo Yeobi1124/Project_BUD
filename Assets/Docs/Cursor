@@ -1,0 +1,59 @@
+﻿@startuml
+
+
+
+class EditManager
+{
+    - blockTypes : BlockSODB
+    - blocks : List<int>
+    - selectedBlock : int
+    
+    + Select(index : int) : void
+    + Summonable() : bool
+    + Insert(id : int) : void
+    + Insert(object : GameObject) : void
+    + Place(pos : Vector3) : void
+    + Remove(index : int) : void
+    + Clear() : void
+    
+    + GetInGameBlock() : GameObject
+    + GetUiBlock() : GameObject
+    + GetPreviewBlock() : GameObject
+}
+
+class BlockSODB
+{
+    - GetBlock(id : int) : BlockSO
+    + GetInGameBlock(id : int) : GameObject
+    + GetUiBlock(id : int) : GameObject
+    + GetPreviewBlock(id : int) : GameObject
+}
+
+class BlockSO
+{
+    + inGameBlock : GameObject
+    + uiBlock : GameObject
+    + previewBlock : GameObject
+}
+
+class BlockPannel
+{
+    + SelectedBlock : int
+    
+    + Insert(object : GameObject) : void
+    + Remove(index : int) : void
+    + Select(id : int) : void
+}
+
+class Cursor
+{
+    + Interact() : void
+    + Summon() : void
+}
+
+class BlockSummonPreview
+{
+    
+}
+
+@enduml

@@ -4,13 +4,16 @@ using UnityEngine.InputSystem;
 
 namespace ProjectBUD.Cursor
 {
-    public class FixedBlock : Block
+    public class CommonBlock : Block
     {
         private SpriteRenderer _spriteRenderer;
         private Collider2D _collider;
+        private Rigidbody2D _rigidbody2D;
         
+        // Cache
         private Color _inGameSpriteColorCache;
         private Color _previewSpriteColorCache;
+        private RigidbodyType2D _inGameRigidbodyType;
 
         [SerializeField]
         private float _previewTransparency = 0.5f;
@@ -28,6 +31,10 @@ namespace ProjectBUD.Cursor
                     
                     // Collider
                     _collider.isTrigger = false;
+                    
+                    // Rigidbody
+                    _rigidbody2D.bodyType = _inGameRigidbodyType;
+                    _rigidbody2D.linearVelocity = Vector2.zero;
                     break;
                 
                 case BlockMode.Preview:
@@ -38,6 +45,10 @@ namespace ProjectBUD.Cursor
                     
                     // Collider
                     _collider.isTrigger = true;
+                    
+                    // Rigidbody
+                    _inGameRigidbodyType = _rigidbody2D.bodyType;
+                    _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
                     break;
                 
                 default:
@@ -55,6 +66,11 @@ namespace ProjectBUD.Cursor
             if (TryGetComponent(out _collider) == false)
             {
                 Debug.LogError("Couldn't find collider");
+            }
+
+            if (TryGetComponent(out _rigidbody2D) == false)
+            {
+                Debug.LogError("Couldn't find rigidbody2D");
             }
         }
 

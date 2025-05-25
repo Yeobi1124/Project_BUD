@@ -37,6 +37,7 @@ namespace ProjectBUD.Cursor
         public void Insert(Block block)
         {
             _selectedBlock = block;
+            block.transform.rotation = Quaternion.identity;
             block.Mode = Block.BlockMode.Preview;
         }
 

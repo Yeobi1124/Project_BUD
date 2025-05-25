@@ -44,5 +44,15 @@ namespace ProjectBUD.Cursor
                 editor.Place(new Vector3(mosPos.x, mosPos.y, 0));
             }
         }
+
+        public void Rotate(InputAction.CallbackContext context)
+        {
+            var editor = EditorManager.Instance;
+
+            if (editor.IsEmpty == false)
+            {
+                editor.Rotate();
+            }
+        }
     }   
 }

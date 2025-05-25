@@ -20,7 +20,7 @@ namespace ProjectBUD.Cursor
             
             var bringOutAction = _actionMap.FindAction("RMB"); // Keyboard E
             bringOutAction.Enable();
-            // bringOutAction.started += cursorInteract.Summon;
+            bringOutAction.started += cursorInteract.Rotate;
         }
 
         private void LMB(InputAction.CallbackContext context)

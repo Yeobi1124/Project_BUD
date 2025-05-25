@@ -36,9 +36,17 @@ namespace ProjectBUD.Cursor
         
         public void Insert(Block block)
         {
+            if (IsEmpty == false) return;
+            
             _selectedBlock = block;
             block.transform.rotation = Quaternion.identity;
             block.Mode = Block.BlockMode.Preview;
+        }
+
+        public void Rotate()
+        {
+            if (IsEmpty == true) return;
+            _selectedBlock.transform.rotation *= Quaternion.Euler(0, 0, 90);
         }
 
         public void Place(Vector3 pos)

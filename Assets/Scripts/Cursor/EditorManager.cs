@@ -30,8 +30,7 @@ namespace ProjectBUD.Cursor
 
         public bool Summonable()
         {
-            // Todo : 실제 로직 짜기. 지금껀 임시로 짜둔 거
-            return _selectedBlock != null;
+            return (_selectedBlock?.IsOverlapped ?? true) == false;
         }
         
         public void Insert(Block block)

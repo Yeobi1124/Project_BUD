@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 namespace ProjectBUD.Cursor
 {
-    [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
+    [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D), typeof(Rigidbody2D))]
     public abstract class Block : MonoBehaviour
     {
         public enum BlockMode { InGame, Preview }
@@ -16,6 +16,8 @@ namespace ProjectBUD.Cursor
             get => mode;
             set => ChangeMode(mode = value);
         }
+        
+        public bool IsOverlapped { get; protected set; }
 
         protected abstract void ChangeMode(BlockMode mode);
     }   

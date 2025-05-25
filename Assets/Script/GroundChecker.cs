@@ -6,6 +6,7 @@ public class GroundChecker : MonoBehaviour
     [SerializeField] float checkDistance = 0.05f;
     public bool CheckIsGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, checkDistance, groundLayer);
+        return Physics2D.Raycast(transform.position, Vector3.down, checkDistance, groundLayer).collider != null;
+        
     }
 }

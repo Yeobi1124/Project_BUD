@@ -9,18 +9,9 @@ namespace ProjectBUD.Cursor
         public static EditorManager Instance = null;
 
         [SerializeField]
-        private BlockSODB _blockTypes;
-        [SerializeField]
-        private List<int> _blocks = new List<int>();
-
-        [SerializeField]
-        private int _selectedBlock = -1;
-        [SerializeField] private GameObject _blockPreviewParent;
-
-        public event Action<int> OnBlockInserted;
-        public event Action<int> OnBlockSelected;
-        public event Action<int> OnBlockRemoved;
-        public event Action OnCleared;
+        private Block _selectedBlock = null;
+        
+        public bool IsEmpty => _selectedBlock == null;
         
         private void Awake()
         {
@@ -40,62 +31,27 @@ namespace ProjectBUD.Cursor
         public bool Summonable()
         {
             // Todo : 실제 로직 짜기. 지금껀 임시로 짜둔 거
-            return _selectedBlock != -1;
+            return _selectedBlock != null;
         }
-
-        public GameObject GetInGameBlock(int id) => _blockTypes.GetInGameBlock(id);
-        public GameObject GetUIBlock(int id) => _blockTypes.GetUIBlock(id);
-        public GameObject GetPreviewBlock(int id) => _blockTypes.GetPreviewBlock(id);
         
-        public void Insert(GameObject block)
+        public void Insert(Block block)
         {
-            BlockInfo info;
-            if (block.TryGetComponent(out info) == false)
-            {
-                Debug.LogError($"Couldn't find BlockInfo {block.name}");
-                return;
-            }
-
-            int id = info.id;
-            _blocks.Add(id);
-            
-            Destroy(block);
-            
-            Debug.Log($"Added Block {id}");
-            OnBlockInserted?.Invoke(id);
+            _selectedBlock = block;
+            block.Mode = Block.BlockMode.Preview;
         }
 
         public void Place(Vector3 pos)
         {
-            GameObject block = Instantiate(_blockTypes.GetInGameBlock(_blocks[_selectedBlock]), pos, Quaternion.identity);
-            Remove(_selectedBlock);
+            if (IsEmpty == true) return;
             
-            // Debug.Log($"Placed Block : id = {_blocks[_selectedBlock]},index = {_selectedBlock}");
-        }
-
-        public void Remove(int index)
-        {
-            _blocks.RemoveAt(index);
-            
-            if(_selectedBlock == index)
-                _selectedBlock = -1;
-            else if(_selectedBlock > index)
-                _selectedBlock -= 1;
-            
-            OnBlockRemoved?.Invoke(index);
-        }
-
-        public void Select(int index)
-        {
-            _selectedBlock = index;
-            OnBlockSelected?.Invoke(index);
+            _selectedBlock.transform.position = pos;
+            _selectedBlock.Mode = Block.BlockMode.InGame;
+            _selectedBlock = null;
         }
 
         public void Clear()
         {
-            _blocks.Clear();
-            _selectedBlock = -1;
-            OnCleared?.Invoke();
+            _selectedBlock = null;
         }
     }   
 }

@@ -44,6 +44,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LMB"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c99a586-5e33-4ab6-aa79-6eaf078cb7c3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RMB"",
+                    ""type"": ""Button"",
+                    ""id"": ""597bf406-9223-49de-b08e-7105533d5cd6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +130,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d057948a-dbdf-4a07-8d72-55076af085c3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LMB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc63d1c3-fa12-4eec-86c7-2dd83896e412"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RMB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +162,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerGameplay = asset.FindActionMap("PlayerGameplay", throwIfNotFound: true);
         m_PlayerGameplay_Jump = m_PlayerGameplay.FindAction("Jump", throwIfNotFound: true);
         m_PlayerGameplay_Move = m_PlayerGameplay.FindAction("Move", throwIfNotFound: true);
+        m_PlayerGameplay_LMB = m_PlayerGameplay.FindAction("LMB", throwIfNotFound: true);
+        m_PlayerGameplay_RMB = m_PlayerGameplay.FindAction("RMB", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -190,12 +232,16 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerGameplayActions> m_PlayerGameplayActionsCallbackInterfaces = new List<IPlayerGameplayActions>();
     private readonly InputAction m_PlayerGameplay_Jump;
     private readonly InputAction m_PlayerGameplay_Move;
+    private readonly InputAction m_PlayerGameplay_LMB;
+    private readonly InputAction m_PlayerGameplay_RMB;
     public struct PlayerGameplayActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerGameplayActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_PlayerGameplay_Jump;
         public InputAction @Move => m_Wrapper.m_PlayerGameplay_Move;
+        public InputAction @LMB => m_Wrapper.m_PlayerGameplay_LMB;
+        public InputAction @RMB => m_Wrapper.m_PlayerGameplay_RMB;
         public InputActionMap Get() { return m_Wrapper.m_PlayerGameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -211,6 +257,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @LMB.started += instance.OnLMB;
+            @LMB.performed += instance.OnLMB;
+            @LMB.canceled += instance.OnLMB;
+            @RMB.started += instance.OnRMB;
+            @RMB.performed += instance.OnRMB;
+            @RMB.canceled += instance.OnRMB;
         }
 
         private void UnregisterCallbacks(IPlayerGameplayActions instance)
@@ -221,6 +273,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @LMB.started -= instance.OnLMB;
+            @LMB.performed -= instance.OnLMB;
+            @LMB.canceled -= instance.OnLMB;
+            @RMB.started -= instance.OnRMB;
+            @RMB.performed -= instance.OnRMB;
+            @RMB.canceled -= instance.OnRMB;
         }
 
         public void RemoveCallbacks(IPlayerGameplayActions instance)
@@ -242,5 +300,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnLMB(InputAction.CallbackContext context);
+        void OnRMB(InputAction.CallbackContext context);
     }
 }

@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         velocity.x = moveInput.x * moveSpeed;
         rb.linearVelocity = velocity;
 
-        jumpHandler.TryJump(rb, groundChecker.CheckIsGrounded(), input.IsJumpPressed());
+        jumpHandler.TryJump(rb, groundChecker.GetIsGrounded(), input.IsJumpPressed());
     }
 
     public void SetAnimatorParameter(string parameterName, float value)
@@ -60,4 +60,5 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
 }

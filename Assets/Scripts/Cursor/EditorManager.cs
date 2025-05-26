@@ -13,6 +13,12 @@ namespace ProjectBUD.Cursor
         
         public bool IsEmpty => _selectedBlock == null;
         
+        [SerializeField]
+        private float _waitingTime = 2f;
+
+        [SerializeField]
+        private float _currentRemainTime;
+        
         private void Awake()
         {
             if (Instance == null)
@@ -28,9 +34,14 @@ namespace ProjectBUD.Cursor
             }
         }
 
+        private void Update()
+        {
+            _currentRemainTime = _currentRemainTime - Time.deltaTime > 0 ? _currentRemainTime - Time.deltaTime : 0;
+        }
+
         public bool Summonable()
         {
-            return (_selectedBlock?.IsOverlapped ?? true) == false;
+            return (_selectedBlock?.IsOverlapped ?? true) == false && _currentRemainTime <= 0;
         }
         
         public void Insert(Block block)
@@ -40,6 +51,8 @@ namespace ProjectBUD.Cursor
             _selectedBlock = block;
             block.transform.rotation = Quaternion.identity;
             block.Mode = Block.BlockMode.Preview;
+
+            _currentRemainTime = _waitingTime;
         }
 
         public void Rotate()
@@ -51,6 +64,7 @@ namespace ProjectBUD.Cursor
         public void Place(Vector3 pos)
         {
             if (IsEmpty == true) return;
+            if (_currentRemainTime > 0) return;
             
             _selectedBlock.transform.position = pos;
             _selectedBlock.Mode = Block.BlockMode.InGame;
@@ -61,5 +75,7 @@ namespace ProjectBUD.Cursor
         {
             _selectedBlock = null;
         }
+        
+        public float GetRemainTimeRate() => _currentRemainTime/_waitingTime;
     }   
 }

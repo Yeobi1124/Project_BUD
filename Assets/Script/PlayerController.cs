@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private GroundChecker groundChecker;
+    private Collider2D playerCollider;
     [SerializeField] private float moveSpeed;
 
     private bool isLookingLeft;
@@ -23,7 +24,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         groundChecker = GetComponent<GroundChecker>();
-
+        playerCollider = GetComponent<Collider2D>();
+        groundChecker.SetPlayerHalfHeight(playerCollider.bounds.extents.y);
         input = new PlayerInputHandler();
         jumpHandler = new JumpHandler(5f);
     }

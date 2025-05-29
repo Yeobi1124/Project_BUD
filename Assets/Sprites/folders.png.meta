@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 4683e4eadb6867e42bef5a95542b2a98
+guid: 6054c7cf14cbcc04aba093a3cc07334b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8631275813819379827
-    second: folder_0
+      213: 690647070637522037
+    second: folders_0
   - first:
-      213: 6362568932013869592
-    second: folder_1
+      213: -422028360969791341
+    second: folders_1
   - first:
-      213: 2686298535630199086
-    second: folder_2
+      213: 3249316068098509222
+    second: folders_2
+  - first:
+      213: 5543976078386357756
+    second: folders_3
+  - first:
+      213: 4790094385462766680
+    second: folders_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,12 +125,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: folder_0
+      name: folders_0
       rect:
         serializedVersion: 2
         x: 0
         y: 84
-        width: 402
+        width: 401
         height: 281
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -134,17 +140,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 370ff194f9378c770800000000000000
-      internalID: 8631275813819379827
+      spriteID: 57c738ef9dba59900800000000000000
+      internalID: 690647070637522037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: folder_1
+      name: folders_1
       rect:
         serializedVersion: 2
-        x: 449
+        x: 448
         y: 85
         width: 428
         height: 280
@@ -156,17 +162,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81a8f9bbbb26c4850800000000000000
-      internalID: 6362568932013869592
+      spriteID: 39851431177a42af0800000000000000
+      internalID: -422028360969791341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: folder_2
+      name: folders_2
       rect:
         serializedVersion: 2
-        x: 899
+        x: 898
         y: 84
         width: 441
         height: 278
@@ -178,8 +184,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e29d3e81946a74520800000000000000
-      internalID: 2686298535630199086
+      spriteID: 6a90bf19fb3e71d20800000000000000
+      internalID: 3249316068098509222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folders_3
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 84
+        width: 385
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf56b7bbed820fc40800000000000000
+      internalID: 5543976078386357756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: folders_4
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 86
+        width: 373
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ce91ee675d97240800000000000000
+      internalID: 4790094385462766680
       vertices: []
       indices: 
       edges: []
@@ -198,9 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      folder_0: 8631275813819379827
-      folder_1: 6362568932013869592
-      folder_2: 2686298535630199086
+      folders_0: 690647070637522037
+      folders_1: -422028360969791341
+      folders_2: 3249316068098509222
+      folders_3: 5543976078386357756
+      folders_4: 4790094385462766680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

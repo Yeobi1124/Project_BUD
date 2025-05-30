@@ -11,4 +11,4 @@ public class TargetFollow : MonoBehaviour
         if(_target != null)
             transform.position = _target.position;
     }
-}
+}   

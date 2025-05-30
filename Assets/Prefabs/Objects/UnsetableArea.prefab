@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2219408924662128044}
   - component: {fileID: 9052853301143481400}
   m_Layer: 8
-  m_Name: UninteractableBox
+  m_Name: UnsetableArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

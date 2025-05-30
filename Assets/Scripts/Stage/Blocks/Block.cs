@@ -1,0 +1,24 @@
+using UnityEngine;
+using UnityEngine.Serialization;
+
+[RequireComponent(typeof(SpriteRenderer), typeof(Collider2D), typeof(Rigidbody2D))]
+public abstract class Block : MonoBehaviour
+{
+    public enum BlockMode { InGame, Preview }
+    
+    [SerializeField]
+    private BlockMode mode = BlockMode.InGame;
+
+    public BlockMode Mode
+    {
+        get => mode;
+        set
+        {
+            ChangeMode(value);
+            mode = value;
+        }
+    }
+
+    protected abstract void ChangeMode(BlockMode mode);
+}   
+

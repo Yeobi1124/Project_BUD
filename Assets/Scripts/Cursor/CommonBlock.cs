@@ -73,5 +73,13 @@ namespace ProjectBUD.Cursor
                 _rigidbody2D.linearVelocity = (mosPos - transform.position).normalized * _followSpeed;
             }
         }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (Mode == BlockMode.Preview && other.CompareTag("CursorArea"))
+            {
+                Mode = BlockMode.InGame;
+            }
+        }
     }   
 }

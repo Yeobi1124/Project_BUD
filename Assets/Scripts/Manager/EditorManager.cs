@@ -62,6 +62,7 @@ public class EditorManager : MonoBehaviour
         
         _selectedBlock.Mode = Block.BlockMode.InGame;
         _selectedBlock = null;
+        _currentRemainTime = 0;
     }
 
     public void Clear()

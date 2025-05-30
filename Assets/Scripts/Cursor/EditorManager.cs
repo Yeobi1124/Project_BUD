@@ -38,11 +38,6 @@ namespace ProjectBUD.Cursor
         {
             _currentRemainTime = _currentRemainTime - Time.deltaTime > 0 ? _currentRemainTime - Time.deltaTime : 0;
         }
-
-        public bool Summonable()
-        {
-            return (_selectedBlock?.IsOverlapped ?? true) == false && _currentRemainTime <= 0;
-        }
         
         public void Insert(Block block)
         {
@@ -61,12 +56,11 @@ namespace ProjectBUD.Cursor
             _selectedBlock.transform.rotation *= Quaternion.Euler(0, 0, 90);
         }
 
-        public void Place(Vector3 pos)
+        public void Place()
         {
             if (IsEmpty == true) return;
             if (_currentRemainTime > 0) return;
             
-            _selectedBlock.transform.position = pos;
             _selectedBlock.Mode = Block.BlockMode.InGame;
             _selectedBlock = null;
         }

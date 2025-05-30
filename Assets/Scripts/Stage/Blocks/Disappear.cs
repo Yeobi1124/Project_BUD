@@ -33,6 +33,9 @@ public class Disappear : MonoBehaviour, IDeadable
             _time += Time.deltaTime;
             var color = _spriteRenderer.color;
             _spriteRenderer.color = new Color(color.r, color.g, color.b, _alphaCurve.Evaluate(_time /  _disappearDuration));
+            
+            if(_time >= _disappearDuration)
+                Destroy(gameObject);
         }
     }
 

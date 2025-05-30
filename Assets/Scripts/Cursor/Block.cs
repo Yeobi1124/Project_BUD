@@ -14,10 +14,12 @@ namespace ProjectBUD.Cursor
         public BlockMode Mode
         {
             get => mode;
-            set => ChangeMode(mode = value);
+            set
+            {
+                ChangeMode(value);
+                mode = value;
+            }
         }
-        
-        public bool IsOverlapped { get; protected set; }
 
         protected abstract void ChangeMode(BlockMode mode);
     }   

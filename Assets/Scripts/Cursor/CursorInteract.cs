@@ -38,11 +38,7 @@ namespace ProjectBUD.Cursor
         {
             var editor = EditorManager.Instance;
 
-            if (editor.Summonable() == true)
-            {
-                var mosPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-                editor.Place(new Vector3(mosPos.x, mosPos.y, 0));
-            }
+            editor.Place();
         }
 
         public void Rotate(InputAction.CallbackContext context)

@@ -10,6 +10,7 @@ namespace ProjectBUD.Cursor
         [SerializeField] private InputActionAsset _actionMap;
         
         [SerializeField] private CursorInteract cursorInteract;
+        [SerializeField] private InteractArea interactArea;
         
         private void Awake()
         {
@@ -21,6 +22,10 @@ namespace ProjectBUD.Cursor
             var bringOutAction = _actionMap.FindAction("RMB"); // Keyboard E
             bringOutAction.Enable();
             bringOutAction.started += cursorInteract.Rotate;
+            
+            var interactAreaAction = _actionMap.FindAction("Interact");
+            interactAreaAction.Enable();
+            interactAreaAction.started += Interact;
         }
 
         private void LMB(InputAction.CallbackContext context)
@@ -33,6 +38,11 @@ namespace ProjectBUD.Cursor
             {
                 cursorInteract.Summon(context);
             }
+        }
+
+        private void Interact(InputAction.CallbackContext context)
+        {
+            interactArea.Interact();
         }
     }   
 }

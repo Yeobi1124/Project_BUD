@@ -2,14 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private GroundChecker groundChecker;
     private Collider2D playerCollider;
     [SerializeField] private float moveSpeed;
-
-    private bool isLookingLeft;
 
     public Vector2 moveInput { get; private set; }
     public bool jumpPressed { get; private set; }
@@ -17,17 +13,17 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInputHandler input;
     private JumpHandler jumpHandler;
+    private PlayerAnimationHandler animHandler;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         groundChecker = GetComponent<GroundChecker>();
         playerCollider = GetComponent<Collider2D>();
         groundChecker.SetPlayerHalfHeight(playerCollider.bounds.extents.y);
         input = new PlayerInputHandler();
         jumpHandler = new JumpHandler(5f);
+        animHandler = new PlayerAnimationHandler(GetComponent<Animator>(), GetComponent<SpriteRenderer>());
     }
 
     private void FixedUpdate()
@@ -37,25 +33,21 @@ public class PlayerController : MonoBehaviour
         velocity.x = moveInput.x * moveSpeed;
         rb.linearVelocity = velocity;
 
-        jumpHandler.TryJump(rb, groundChecker.GetIsGrounded(), input.IsJumpPressed());
+        bool isJump = jumpHandler.TryJump(rb, groundChecker.GetIsGrounded(), input.IsJumpPressed());
+        AnimUpdate(velocity.x, isJump);
+        
     }
 
-    public void SetAnimatorParameter(string parameterName, float value)
+    private void AnimUpdate(float velocityX,bool isJump)
     {
-        animator.SetFloat(parameterName, value);
-    }
-
-    public void SpriteRendererFlip()
-    {
-        if (isLookingLeft)
-            spriteRenderer.flipX = true;
-        else
-            spriteRenderer.flipX = false;
-    }
-
-    public void SetIsLookingLeft(bool isLookingLeft)
-    {
-        this.isLookingLeft = isLookingLeft;
+        // 점프
+        if (isJump) 
+            animHandler.SetAnimatorParameter("IsJump");
+        // 이동
+        if (velocityX!=0) 
+            animHandler.SetAnimatorParameter("IsMoving",true);
+        //좌우판정
+        animHandler.CheckFlip(velocityX);
     }
 
     void Update()

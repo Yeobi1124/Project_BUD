@@ -10,12 +10,15 @@ public class JumpHandler : IJumpHandler
         this.jumpForce = jumpForce;
     }
 
-    public void TryJump(Rigidbody2D rb, bool isGrounded, bool isJumpPressed)
+    //jump = true, no jump = false
+    public bool TryJump(Rigidbody2D rb, bool isGrounded, bool isJumpPressed)
     {
         Debug.Log("isG: " + isGrounded + ", isJ: " + isJumpPressed);
         if(isGrounded && isJumpPressed)
         {
             rb.AddForce(Vector2.up * jumpForce , ForceMode2D.Impulse);
+            return true;
         }
+        return false;
     }
 }

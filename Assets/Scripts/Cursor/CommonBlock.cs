@@ -14,6 +14,7 @@ namespace ProjectBUD.Cursor
 
         private float _gravity;
         private float _mass;
+        private RigidbodyType2D _rigidbodyType;
         
         protected override void ChangeMode(BlockMode mode)
         {
@@ -22,7 +23,11 @@ namespace ProjectBUD.Cursor
             switch (mode)
             {
                 case BlockMode.InGame:
+                    // Layer
+                    gameObject.layer = LayerMask.NameToLayer("Block");
+                    
                     // Rigidbody
+                    _rigidbody2D.bodyType = _rigidbodyType;
                     _rigidbody2D.constraints = RigidbodyConstraints2D.None;
                     _rigidbody2D.linearVelocity = Vector2.zero;
                     _rigidbody2D.gravityScale = _gravity;
@@ -31,10 +36,16 @@ namespace ProjectBUD.Cursor
                     break;
                 
                 case BlockMode.Preview:
+                    // Layer
+                    gameObject.layer = LayerMask.NameToLayer("Preview");
+                    
                     // Transform
                     transform.rotation = Quaternion.identity;
                     
                     // Rigidbody
+                    _rigidbodyType = _rigidbody2D.bodyType;
+                    _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                    
                     _rigidbody2D.angularVelocity = 0;
                     _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
                     

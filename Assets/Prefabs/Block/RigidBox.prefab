@@ -50,11 +50,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2265676098618351899, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
       propertyPath: m_Name
-      value: FixedBox (1) Variant
+      value: RigidBox
       objectReference: {fileID: 0}
     - target: {fileID: 2604293259184760311, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049572342546195251, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.98317933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049572342546195251, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3803922
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

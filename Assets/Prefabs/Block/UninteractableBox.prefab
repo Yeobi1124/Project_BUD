@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 1900773079245790345}
   - component: {fileID: 3990660129321720685}
   - component: {fileID: 2219408924662128044}
-  - component: {fileID: 5722684742477952903}
   - component: {fileID: 9052853301143481400}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: UninteractableBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +147,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -164,21 +163,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5722684742477952903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3558267903286100773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7129a0717caa5746881401aad0b0cc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 0
-  _previewTransparency: 0.5
-  _overlapColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!114 &9052853301143481400
 MonoBehaviour:
   m_ObjectHideFlags: 0

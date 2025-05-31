@@ -46,5 +46,19 @@ public class StageManager : MonoBehaviour
         player.transform.position = stages[++_currentStage].StartPos;
     }
 
-    public void Restart(){}
+    public void Restart()
+    {
+        var newStage = Instantiate(stagePrefabs[_currentStage]);
+        newStage.gameObject.SetActive(true);
+        
+        var oldStage = stages[_currentStage];
+        stages[_currentStage] = newStage;
+        
+        var player = PlayerManager.Instance.Player;
+        player.transform.position = newStage.StartPos;
+        var rigid = player.GetComponent<Rigidbody2D>();
+        rigid.linearVelocity = Vector2.zero;
+        
+        Destroy(oldStage.gameObject);
+    }
 }  

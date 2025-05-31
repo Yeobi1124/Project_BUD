@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - CursorArea
+  - Block
   layers:
   - Default
   - TransparentFX

@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RigidBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2265676098618351899, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: m_TagString
+      value: Block
+      objectReference: {fileID: 0}
     - target: {fileID: 2604293259184760311, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -64,8 +68,39 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3803922
       objectReference: {fileID: 0}
+    - target: {fileID: 8617403920596783561, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2265676098618351899, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1018955910834391308}
   m_SourcePrefab: {fileID: 100100000, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+--- !u!1 &482742607414337273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2265676098618351899, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+  m_PrefabInstance: {fileID: 1856124819194380258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!251 &1018955910834391308
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482742607414337273}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

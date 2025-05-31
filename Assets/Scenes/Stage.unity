@@ -875,6 +875,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7285071649199495544, guid: 5bb2387660d5a054791ec631a17d214d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1061801751286890457, guid: 1a12d4d5fd15f3b46b01b6d4c5447015, type: 3}
+    - target: {fileID: 7285071649199495544, guid: 5bb2387660d5a054791ec631a17d214d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285071649199495544, guid: 5bb2387660d5a054791ec631a17d214d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285071649199495544, guid: 5bb2387660d5a054791ec631a17d214d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8281304512110736526, guid: 5bb2387660d5a054791ec631a17d214d, type: 3}
       propertyPath: m_Name
       value: Portal

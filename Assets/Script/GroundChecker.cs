@@ -17,7 +17,7 @@ public class GroundChecker : MonoBehaviour
         this.playerHalfHeight = playerHalfHeight;
     }
 
-    //Ãæµ¹½Ã ±×¶ó¿îµåÀÇ À§¿¡¼­ Ãæµ¹ÇßÀ» °æ¿ì¸¸ Á¡ÇÁ °¡´É »óÅÂ ¸¸µé¾îÁÜ
+    //ì¶©ëŒì‹œ ê·¸ë¼ìš´ë“œì˜ ìœ„ì—ì„œ ì¶©ëŒí–ˆì„ ê²½ìš°ë§Œ ì í”„ ê°€ëŠ¥ ìƒíƒœ ë§Œë“¤ì–´ì¤Œ
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))

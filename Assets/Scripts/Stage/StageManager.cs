@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
@@ -28,8 +29,13 @@ public class StageManager : MonoBehaviour
         }
 
         _currentStage = 0;
+        PlayerManager.Instance.Player.transform.position = stagePrefabs[_currentStage].StartPos;
+    }
+
+    private void Start()
+    {
+        // stages[_currentStage].Enter(PlayerManager.Instance.Player.gameObject, Camera.main);
         
-        PlayerManager.Instance.Player.transform.position = stages[_currentStage].StartPos;
     }
 
     private void OnDestroy()
@@ -42,8 +48,11 @@ public class StageManager : MonoBehaviour
     {
         if (stages.Count <= _currentStage + 1) return;
         var player = PlayerManager.Instance.Player;
+
+        ++_currentStage;
         
-        player.transform.position = stages[++_currentStage].StartPos;
+        CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
+        stages[_currentStage].Enter(player.gameObject, brain.ActiveVirtualCamera as CinemachineCamera);
     }
 
     public void Restart()
@@ -54,10 +63,7 @@ public class StageManager : MonoBehaviour
         var oldStage = stages[_currentStage];
         stages[_currentStage] = newStage;
         
-        var player = PlayerManager.Instance.Player;
-        player.transform.position = newStage.StartPos;
-        var rigid = player.GetComponent<Rigidbody2D>();
-        rigid.linearVelocity = Vector2.zero;
+        newStage.Enter(PlayerManager.Instance.Player.gameObject, Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineCamera);
         
         Destroy(oldStage.gameObject);
     }

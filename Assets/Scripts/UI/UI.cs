@@ -17,7 +17,7 @@ public class UI : MonoBehaviour
     }
 
     public void ClickExit(){
-        
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ClickRestart(){

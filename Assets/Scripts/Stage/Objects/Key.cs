@@ -5,12 +5,14 @@ using UnityEngine;
 public class Key : MonoBehaviour
 {
     [SerializeField] private GameObject _lock;
+    private LockAnimationHandler lockAnimationHandler;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            _lock.SetActive(false);
+            lockAnimationHandler = _lock.GetComponent<LockAnimationHandler>();
+            lockAnimationHandler.UnlockAnim();
             gameObject.SetActive(false);
         }
     }

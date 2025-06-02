@@ -13,51 +13,56 @@ public class CommonBlock : Block
     private float _gravity;
     private float _mass;
     private RigidbodyType2D _rigidbodyType;
+
+    [SerializeField]
+    private LayerMask _inGameLayer;
+    [SerializeField]
+    private LayerMask _previewLayer;
     
     protected override void ChangeMode(BlockMode mode)
     {
         if (mode == Mode) return;
-        
+
         switch (mode)
         {
             case BlockMode.InGame:
                 // Layer
-                gameObject.layer = LayerMask.NameToLayer("Block");
-                
+                gameObject.layer = Utils.GetIntFromLayer(_inGameLayer);
+
                 // Rigidbody
                 _rigidbody2D.bodyType = _rigidbodyType;
                 _rigidbody2D.constraints = RigidbodyConstraints2D.None;
                 _rigidbody2D.linearVelocity = Vector2.zero;
                 _rigidbody2D.gravityScale = _gravity;
                 _rigidbody2D.mass = _mass;
-                
+
                 break;
-            
+
             case BlockMode.Preview:
                 // Layer
-                gameObject.layer = LayerMask.NameToLayer("Preview");
-                
+                gameObject.layer = Utils.GetIntFromLayer(_previewLayer);
+
                 // Transform
                 transform.rotation = Quaternion.identity;
-                
+
                 // Rigidbody
                 _rigidbodyType = _rigidbody2D.bodyType;
                 _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-                
+
                 _rigidbody2D.angularVelocity = 0;
                 _rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-                
+
                 _gravity = _rigidbody2D.gravityScale;
                 _rigidbody2D.gravityScale = 0;
-                
+
                 _mass = _rigidbody2D.mass;
                 _rigidbody2D.mass = 0;
                 break;
-            
+
             default:
                 break;
         }
-        
+
         Debug.Log($"{name} change mode to {mode}");
     }
 

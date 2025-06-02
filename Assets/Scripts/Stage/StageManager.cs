@@ -24,35 +24,44 @@ public class StageManager : MonoBehaviour
 
         foreach (Stage stage in stagePrefabs)
         {
-            stages.Add(Instantiate(stage));
+            // stages.Add(Instantiate(stage));
             stage.gameObject.SetActive(false);
         }
 
         _currentStage = 0;
-        PlayerManager.Instance.Player.transform.position = stagePrefabs[_currentStage].StartPos;
+
+        var startStage = Instantiate(stagePrefabs[_currentStage]);
+        startStage.gameObject.SetActive(true);
+        stages.Add(startStage);
+        
+        PlayerManager.Instance.Player.transform.position = startStage.StartPos;
     }
 
     private void Start()
     {
-        // stages[_currentStage].Enter(PlayerManager.Instance.Player.gameObject, Camera.main);
+        var player = PlayerManager.Instance.Player;
         
+        CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
+        stages[_currentStage].Enter(player.gameObject, brain.ActiveVirtualCamera as CinemachineCamera);   
     }
 
     private void OnDestroy()
     {
-        if(Instance == this)
+        if (Instance == this)
             Instance = null;
     }
 
     public void MoveToNextStage()
     {
-        if (stages.Count <= _currentStage + 1) return;
+        if (stagePrefabs.Length <= _currentStage + 1) return;
         var player = PlayerManager.Instance.Player;
 
-        ++_currentStage;
+        var nextStage = Instantiate(stagePrefabs[++_currentStage]);
+        nextStage.gameObject.SetActive(true);
+        stages.Add(nextStage);
         
         CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
-        stages[_currentStage].Enter(player.gameObject, brain.ActiveVirtualCamera as CinemachineCamera);
+        nextStage.Enter(player.gameObject, brain.ActiveVirtualCamera as CinemachineCamera);
     }
 
     public void Restart()

@@ -50,8 +50,10 @@ public class Stage : MonoBehaviour
         var cinemachine = camera.GetComponent<CinemachineCamera>();
         var confiner = camera.GetComponent<CinemachineConfiner2D>();
         
+        confiner.BoundingShape2D = cameraBorder;
+        confiner.InvalidateBoundingShapeCache();
+
+        cinemachine.Lens.OrthographicSize = lens;
         Camera.main.transform.position = startPoint.position;
-        // cinemachine.Lens.OrthographicSize = lens;
-        // confiner.BoundingShape2D = cameraBorder;
     }
 }   

@@ -30,12 +30,4 @@ public class UIController : MonoBehaviour
     public void ClickRestart(){
 
     }
-
-    public void ClickStart(){
-        SceneManager.LoadScene("Stage");
-    }
-
-    public void ClickQuit(){
-        Application.Quit();
-    }
 }

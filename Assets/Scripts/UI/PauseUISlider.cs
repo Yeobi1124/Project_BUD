@@ -20,11 +20,13 @@ public class PauseUISlider : MonoBehaviour
 
     public void UIShow()
     {
+        StopAllCoroutines();
         StartCoroutine(UIMenuShow());
     }
 
     public void UIHide()
     {
+        StopAllCoroutines();
         StartCoroutine(UIMenuHide());
     }
 

@@ -1,18 +1,26 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UI : MonoBehaviour
+public class UIController : MonoBehaviour
 {
-    public GameObject Pause;
-    public GameObject PauseMenu;
+    [SerializeField] private GameObject Pause;
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private PauseUISlider pauseUISlider;
+
+    public void Awake()
+    {
+        pauseUISlider.Initialize();
+    }
 
     public void ClickOpenMenu(){
         Pause.SetActive(false);
         PauseMenu.SetActive(true);
+        pauseUISlider.UIShow();
     }
 
     public void ClickResume(){
         Pause.SetActive(true);
+        pauseUISlider.UIHide();
         PauseMenu.SetActive(false);
     }
 

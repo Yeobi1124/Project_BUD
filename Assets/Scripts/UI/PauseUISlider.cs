@@ -6,27 +6,29 @@ public class PauseUISlider : MonoBehaviour
     private Vector2 hiddenPosition;
     private Vector2 showPosition;
     private RectTransform rectTransform;
+    private UIController uIController;
     [SerializeField] private float duration;
 
-    public void Initialize()
+    public void Initialize(GameObject pauseMenu)
     {
         hiddenPosition = new Vector2(-1100, 0);
         showPosition = new Vector2(-825, 0);
-        rectTransform = GetComponent<RectTransform>();
+        rectTransform = pauseMenu.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = hiddenPosition;
         duration = 0.5f;
     }
 
     public void UIShow()
     {
-        StartCoroutine((SlideUIMenu(hiddenPosition,showPosition)));
-    }
-    public void UIHide()
-    {
-        StartCoroutine((SlideUIMenu(showPosition, hiddenPosition)));
+        StartCoroutine(UIMenuShow());
     }
 
-    IEnumerator SlideUIMenu(Vector2 start, Vector2 end)
+    public void UIHide()
+    {
+        StartCoroutine(UIMenuHide());
+    }
+
+    IEnumerator UIMenuHide()
     {
         float nowTime = 0.0f;
         
@@ -34,11 +36,23 @@ public class PauseUISlider : MonoBehaviour
         {
             nowTime += Time.deltaTime;
             float progress = Mathf.Clamp01(nowTime / duration);
-            rectTransform.anchoredPosition = Vector2.Lerp(start,end,progress);
-            //yield return new WaitForSeconds(Time.deltaTime);
+            rectTransform.anchoredPosition = Vector2.Lerp(showPosition,hiddenPosition,progress);
             yield return null;
         }
-        
-        
+        rectTransform.gameObject.SetActive(false); 
+    }
+
+    IEnumerator UIMenuShow()
+    {
+        rectTransform.gameObject.SetActive(true);
+        float nowTime = 0.0f;
+
+        while (nowTime <= duration)
+        {
+            nowTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(nowTime / duration);
+            rectTransform.anchoredPosition = Vector2.Lerp(hiddenPosition, showPosition, progress);
+            yield return null;
+        }
     }
 }

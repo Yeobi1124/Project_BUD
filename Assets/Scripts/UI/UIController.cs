@@ -5,23 +5,22 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject Pause;
     [SerializeField] private GameObject PauseMenu;
-    [SerializeField] private PauseUISlider pauseUISlider;
+    private PauseUISlider pauseUISlider;
 
     public void Awake()
     {
-        pauseUISlider.Initialize();
+        pauseUISlider = GetComponent<PauseUISlider>();
+        pauseUISlider.Initialize(PauseMenu);
     }
 
     public void ClickOpenMenu(){
         Pause.SetActive(false);
-        PauseMenu.SetActive(true);
         pauseUISlider.UIShow();
     }
 
     public void ClickResume(){
         Pause.SetActive(true);
         pauseUISlider.UIHide();
-        PauseMenu.SetActive(false);
     }
 
     public void ClickExit(){

@@ -16,10 +16,8 @@ public class CursorInteract : MonoBehaviour
         mosPos = Camera.main.ScreenToWorldPoint(mosPos);
         
         RaycastHit2D hit = Physics2D.Raycast(new Vector3(mosPos.x, mosPos.y, -10), Vector3.forward, float.PositiveInfinity, layer);
-        if (hit == true)
-        {
-            IInteractableWithCursor interact = hit.collider.gameObject.GetComponent<IInteractableWithCursor>();
-            
+        if (hit == true && hit.collider.TryGetComponent(out IInteractableWithCursor interact))
+        {            
             interact.Interact();
         }
         else

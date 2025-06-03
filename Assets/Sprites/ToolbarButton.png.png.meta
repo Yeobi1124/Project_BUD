@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ToolbarButton.png_0: 7843762993061087395
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

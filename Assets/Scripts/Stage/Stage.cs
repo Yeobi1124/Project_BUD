@@ -56,4 +56,6 @@ public class Stage : MonoBehaviour
         cinemachine.Lens.OrthographicSize = lens;
         Camera.main.transform.position = startPoint.position;
     }
+    
+    public void UpdateStartPoint(Transform startPoint) => this.startPoint = startPoint;
 }   

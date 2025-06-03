@@ -14,7 +14,8 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private int _currentStage;
     public int CurrentStage => _currentStage;
-
+    public Stage[] StagePrefabs { get => stagePrefabs; set => stagePrefabs = value; }
+    
     private void Awake()
     {
         if(Instance == null)

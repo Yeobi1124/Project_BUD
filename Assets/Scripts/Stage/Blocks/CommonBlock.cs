@@ -35,7 +35,7 @@ public class CommonBlock : Block
                 _rigidbody2D.linearVelocity = Vector2.zero;
                 _rigidbody2D.gravityScale = _gravity;
                 _rigidbody2D.mass = _mass;
-
+                
                 break;
 
             case BlockMode.Preview:

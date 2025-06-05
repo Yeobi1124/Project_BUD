@@ -28,6 +28,6 @@ public class UIController : MonoBehaviour
     }
 
     public void ClickRestart(){
-
+        StageManager.Instance.Restart();
     }
 }

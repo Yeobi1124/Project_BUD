@@ -180,7 +180,7 @@ MonoBehaviour:
   _followSpeed: 200
   _inGameLayer:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 64
   _previewLayer:
     serializedVersion: 2
     m_Bits: 256

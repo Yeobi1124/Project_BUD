@@ -1132,10 +1132,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RigidBox
       objectReference: {fileID: 0}
-    - target: {fileID: 482742607414337273, guid: 9dab761588ec21641b3a7067c09c4923, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1633788065860816055, guid: 9dab761588ec21641b3a7067c09c4923, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -1143,10 +1139,6 @@ PrefabInstance:
     - target: {fileID: 1633788065860816055, guid: 9dab761588ec21641b3a7067c09c4923, type: 3}
       propertyPath: m_LocalScale.y
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633788065860816055, guid: 9dab761588ec21641b3a7067c09c4923, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5741825
       objectReference: {fileID: 0}
     - target: {fileID: 1633788065860816055, guid: 9dab761588ec21641b3a7067c09c4923, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11914,7 +11906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4876069512678735918, guid: f5ca726fba82c754a9382fe64b5b7eaa, type: 3}
       propertyPath: layer.m_Bits
-      value: 513
+      value: 576
       objectReference: {fileID: 0}
     - target: {fileID: 5429183021864419671, guid: f5ca726fba82c754a9382fe64b5b7eaa, type: 3}
       propertyPath: m_Name

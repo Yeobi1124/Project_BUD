@@ -40,21 +40,22 @@ public class Stage : MonoBehaviour
         }
     }
 
-    public void Enter(GameObject player, CinemachineCamera camera)
+    public void Enter(GameObject player)
     {
         player.transform.position = startPoint.position;
         var rigidBody = player.GetComponent<Rigidbody2D>();
         rigidBody.linearVelocity = Vector2.zero;
         
         // Camera
-        var cinemachine = camera.GetComponent<CinemachineCamera>();
-        var confiner = camera.GetComponent<CinemachineConfiner2D>();
-        
-        confiner.BoundingShape2D = cameraBorder;
-        confiner.InvalidateBoundingShapeCache();
-
-        cinemachine.Lens.OrthographicSize = lens;
-        Camera.main.transform.position = startPoint.position;
+        // var cinemachine = camera.GetComponent<CinemachineCamera>();
+        // var confiner = camera.GetComponent<CinemachineConfiner2D>();
+        //
+        // confiner.BoundingShape2D = cameraBorder;
+        // confiner.InvalidateBoundingShapeCache();
+        //
+        // cinemachine.Lens.OrthographicSize = lens;
+        // Camera.main.transform.position = startPoint.position;
+        CamManager.Instance.UpdateCamera(lens, cameraBorder);
     }
     
     public void UpdateStartPoint(Transform startPoint) => this.startPoint = startPoint;

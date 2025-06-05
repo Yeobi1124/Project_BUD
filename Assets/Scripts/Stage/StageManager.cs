@@ -43,7 +43,7 @@ public class StageManager : MonoBehaviour
         var player = PlayerManager.Instance.Player;
         
         CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
-        stages[_currentStage].Enter(player.gameObject, brain.ActiveVirtualCamera as CinemachineCamera);   
+        stages[_currentStage].Enter(player.gameObject);   
     }
 
     private void OnDestroy()
@@ -61,8 +61,7 @@ public class StageManager : MonoBehaviour
         nextStage.gameObject.SetActive(true);
         stages.Add(nextStage);
         
-        CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
-        nextStage.Enter(player.gameObject, brain.ActiveVirtualCamera as CinemachineCamera);
+        nextStage.Enter(player.gameObject);
     }
 
     public void Restart()
@@ -73,7 +72,7 @@ public class StageManager : MonoBehaviour
         var oldStage = stages[_currentStage];
         stages[_currentStage] = newStage;
         
-        newStage.Enter(PlayerManager.Instance.Player.gameObject, Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineCamera);
+        newStage.Enter(PlayerManager.Instance.Player.gameObject);
         
         Destroy(oldStage.gameObject);
     }

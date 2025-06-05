@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ProjectBUD.Cursor;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class EditorManager : MonoBehaviour

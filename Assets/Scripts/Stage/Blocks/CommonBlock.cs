@@ -10,9 +10,11 @@ public class CommonBlock : Block
     [SerializeField]
     private float _followSpeed = 5f;
 
+    // Cache
     private float _gravity;
     private float _mass;
     private RigidbodyType2D _rigidbodyType;
+    private string _tag;
 
     [SerializeField]
     private LayerMask _inGameLayer;
@@ -36,6 +38,9 @@ public class CommonBlock : Block
                 _rigidbody2D.gravityScale = _gravity;
                 _rigidbody2D.mass = _mass;
                 
+                // Tag
+                tag = _tag;
+                
                 break;
 
             case BlockMode.Preview:
@@ -57,6 +62,11 @@ public class CommonBlock : Block
 
                 _mass = _rigidbody2D.mass;
                 _rigidbody2D.mass = 0;
+                
+                // Tag
+                _tag = tag;
+                tag = "Untagged";
+                
                 break;
 
             default:

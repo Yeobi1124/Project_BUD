@@ -69,6 +69,26 @@ PrefabInstance:
       value: 0.3803922
       objectReference: {fileID: 0}
     - target: {fileID: 5604992474049363577, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: _inGameColor.b
+      value: 0.9803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604992474049363577, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: _inGameColor.r
+      value: 0.3803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604992474049363577, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: _previewColor.b
+      value: 0.6775061
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604992474049363577, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: _previewColor.g
+      value: 0.6886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604992474049363577, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: _previewColor.r
+      value: 0.25013348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604992474049363577, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
       propertyPath: _inGameLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}

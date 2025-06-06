@@ -6,6 +6,7 @@ public class CommonBlock : Block
 {
     private Collider2D _collider;
     private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _spriteRenderer;
     
     [SerializeField]
     private float _followSpeed = 5f;
@@ -20,6 +21,16 @@ public class CommonBlock : Block
     private LayerMask _inGameLayer;
     [SerializeField]
     private LayerMask _previewLayer;
+    
+    [Header("Color")]
+    [SerializeField] private Color _inGameColor;
+    [SerializeField] private Color _previewColor;
+    
+    [Header("Outline")]
+    [SerializeField] private Color _inGameOutlineColor;
+    [SerializeField] private Color _previewOutlineColor;
+    
+    private SpriteRenderer _outlineRenderer;
     
     protected override void ChangeMode(BlockMode mode)
     {
@@ -40,6 +51,10 @@ public class CommonBlock : Block
                 
                 // Tag
                 tag = _tag;
+                
+                // Color
+                _spriteRenderer.color = _inGameColor;
+                _outlineRenderer.color = _inGameOutlineColor;
                 
                 break;
 
@@ -67,6 +82,10 @@ public class CommonBlock : Block
                 _tag = tag;
                 tag = "Untagged";
                 
+                // Color
+                _spriteRenderer.color = _previewColor;
+                _outlineRenderer.color = _previewOutlineColor;
+                
                 break;
 
             default:
@@ -87,6 +106,16 @@ public class CommonBlock : Block
         {
             Debug.LogError("Couldn't find rigidbody2D");
         }
+
+        if (TryGetComponent(out _spriteRenderer) == false)
+        {
+            Debug.LogError("Couldn't find spriteRenderer");
+        }
+        
+        transform.GetChild(0).TryGetComponent(out _outlineRenderer);
+        
+        _spriteRenderer.color = _inGameColor;
+        _outlineRenderer.color = _inGameOutlineColor;
     }
 
     private void FixedUpdate()

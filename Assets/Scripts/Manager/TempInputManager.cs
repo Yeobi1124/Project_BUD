@@ -28,7 +28,7 @@ public class TempInputManager : MonoBehaviour
 
     private void LMB(InputAction.CallbackContext context)
     {
-        if (EditorManager.Instance.IsEmpty == true)
+        if (EditorManager.Instance.IsSummonable != true)
         {
             cursorInteract.Interact(context);
         }

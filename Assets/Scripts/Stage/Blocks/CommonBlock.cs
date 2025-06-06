@@ -129,6 +129,7 @@ public class CommonBlock : Block
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log($"name: {name} mode: {Mode} tag: {tag} other name: {other.name} tag: {other.tag}");
         if (Mode == BlockMode.Preview && other.CompareTag("CursorArea"))
         {
             EditorManager.Instance.Place();

@@ -56,10 +56,11 @@ public class EditorManager : MonoBehaviour
         _selectedBlock.transform.rotation *= Quaternion.Euler(0, 0, 90);
     }
 
+    public bool IsSummonable => _selectedBlock != null && _currentRemainTime ! <= 0;
+
     public void Place()
     {
         if (IsEmpty == true) return;
-        if (_currentRemainTime > 0) return;
         
         _selectedBlock.Mode = Block.BlockMode.InGame;
         _selectedBlock = null;

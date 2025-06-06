@@ -131,7 +131,7 @@ public class CommonBlock : Block
     {
         if (Mode == BlockMode.Preview && other.CompareTag("CursorArea"))
         {
-            Mode = BlockMode.InGame;
+            EditorManager.Instance.Place();
         }
     }
 }   

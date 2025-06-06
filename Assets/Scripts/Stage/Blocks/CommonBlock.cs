@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class CommonBlock : Block
@@ -7,6 +8,7 @@ public class CommonBlock : Block
     private Collider2D _collider;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
+    private AudioSource _audioSource;
     
     [SerializeField]
     private float _followSpeed = 5f;
@@ -31,6 +33,10 @@ public class CommonBlock : Block
     [SerializeField] private Color _previewOutlineColor;
     
     private SpriteRenderer _outlineRenderer;
+
+    [Header("Sounds")]
+    [SerializeField] private AudioClip _pick;
+    [SerializeField] private AudioClip _place;
     
     protected override void ChangeMode(BlockMode mode)
     {
@@ -55,6 +61,10 @@ public class CommonBlock : Block
                 // Color
                 _spriteRenderer.color = _inGameColor;
                 _outlineRenderer.color = _inGameOutlineColor;
+                
+                // Sound
+                _audioSource.clip = _place;
+                _audioSource.Play();
                 
                 break;
 
@@ -86,6 +96,10 @@ public class CommonBlock : Block
                 _spriteRenderer.color = _previewColor;
                 _outlineRenderer.color = _previewOutlineColor;
                 
+                // Sound
+                _audioSource.clip = _pick;
+                _audioSource.Play();
+                
                 break;
 
             default:
@@ -110,6 +124,11 @@ public class CommonBlock : Block
         if (TryGetComponent(out _spriteRenderer) == false)
         {
             Debug.LogError("Couldn't find spriteRenderer");
+        }
+
+        if (TryGetComponent(out _audioSource) == false)
+        {
+            Debug.LogError("Couldn't find audioSource");
         }
         
         transform.GetChild(0).TryGetComponent(out _outlineRenderer);

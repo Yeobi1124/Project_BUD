@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3803922
       objectReference: {fileID: 0}
+    - target: {fileID: 5604992474049363577, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
+      propertyPath: _inGameLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8617403920596783561, guid: 9cd87e4ffa2e5ac4cac65d9edac8f44a, type: 3}
       propertyPath: m_UsedByEffector
       value: 1

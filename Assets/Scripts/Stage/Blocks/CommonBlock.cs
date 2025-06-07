@@ -38,7 +38,8 @@ public class CommonBlock : Block
     [Header("Sounds")]
     [SerializeField] private AudioClip _pick;
     [SerializeField] private AudioClip _place;
-    
+
+    [SerializeField] private float _previewMass = 0f;
     protected override void ChangeMode(BlockMode mode)
     {
         if (mode == Mode) return;
@@ -87,7 +88,7 @@ public class CommonBlock : Block
                 _rigidbody2D.gravityScale = 0;
 
                 _mass = _rigidbody2D.mass;
-                _rigidbody2D.mass = 0;
+                _rigidbody2D.mass = _previewMass;
                 
                 // Tag
                 _tag = tag;

@@ -14,6 +14,7 @@ public class CommonBlock : Block
     private float _followSpeed = 5f;
 
     // Cache
+    private Quaternion _initialRotation;
     private float _gravity;
     private float _mass;
     private RigidbodyType2D _rigidbodyType;
@@ -73,7 +74,7 @@ public class CommonBlock : Block
                 gameObject.layer = Utils.GetIntFromLayer(_previewLayer);
 
                 // Transform
-                transform.rotation = Quaternion.identity;
+                transform.rotation = _initialRotation;
 
                 // Rigidbody
                 _rigidbodyType = _rigidbody2D.bodyType;
@@ -133,6 +134,7 @@ public class CommonBlock : Block
         
         transform.GetChild(0).TryGetComponent(out _outlineRenderer);
         
+        _initialRotation = transform.rotation;
         _spriteRenderer.color = _inGameColor;
         _outlineRenderer.color = _inGameOutlineColor;
     }

@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject gameInfoUI;
-
+    [SerializeField] GameObject mainLogoUI;
     private void Awake()
     {
         ClearScreen();
+
     }
 
     public void ClickStart(){

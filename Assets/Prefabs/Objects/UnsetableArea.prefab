@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1900773079245790345}
   - component: {fileID: 3990660129321720685}
   - component: {fileID: 9052853301143481400}
-  - component: {fileID: 2982337781272151301}
+  - component: {fileID: 2312654525117800639}
   m_Layer: 9
   m_Name: UnsetableArea
   m_TagString: Untagged
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc146ef14b19f4f469d1a67786c3c1b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &2982337781272151301
+--- !u!61 &2312654525117800639
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,11 +167,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.7688888, y: 1.7733333}
+    oldSize: {x: 8.844444, y: 8.866667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.7688888, y: 1.7733333}
+  m_Size: {x: 8.844444, y: 8.866667}
   m_EdgeRadius: 0

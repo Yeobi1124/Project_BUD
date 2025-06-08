@@ -2254,6 +2254,7 @@ MonoBehaviour:
   pause: {fileID: 1037891547}
   pauseMenu: {fileID: 2130401656}
   infoUI: {fileID: 848975930}
+  fadeOutUI: {fileID: 848975930}
 --- !u!1 &386380116
 GameObject:
   m_ObjectHideFlags: 0
@@ -14111,6 +14112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneName: 2
   isEndingPortal: 0
+  uiController: {fileID: 0}
 --- !u!1001 &1854604307
 PrefabInstance:
   m_ObjectHideFlags: 0

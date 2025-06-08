@@ -8669,6 +8669,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1934856272452429315, guid: f5ca726fba82c754a9382fe64b5b7eaa, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934856272452429315, guid: f5ca726fba82c754a9382fe64b5b7eaa, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934856272452429315, guid: f5ca726fba82c754a9382fe64b5b7eaa, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 4876069512678735918, guid: f5ca726fba82c754a9382fe64b5b7eaa, type: 3}
       propertyPath: layer.m_Bits
       value: 577

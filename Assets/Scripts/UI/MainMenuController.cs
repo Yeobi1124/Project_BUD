@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject gameInfoUI;
-    [SerializeField] GameObject mainLogoUI;
+    [SerializeField] GameObject mainLogoFrontUI;
+    [SerializeField] Animator mainLogoAnimator;
     private void Awake()
     {
         ClearScreen();
-
+        
     }
 
     public void ClickStart(){

@@ -6,12 +6,24 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject gameInfoUI;
     [SerializeField] GameObject gameStartFolder;
+    [SerializeField] GameObject gameEndingSaveIcon;
     private Animator gameStartAnimator;
+    private Animator gameEndingAnimator;
     [SerializeField] private float waitTime;
+
+
     private void Awake()
     {
         ClearScreen();
         gameStartAnimator = gameStartFolder.GetComponent<Animator>();
+        gameEndingAnimator = gameEndingSaveIcon.GetComponent<Animator>();
+        if (EndingCheck.EndingAchieved)
+        {
+            Debug.Log("Ending");
+            gameEndingSaveIcon.SetActive(true);
+            gameEndingAnimator.SetTrigger("Ending");
+        }
+
     }
 
     public void GameStartAnim()
@@ -27,7 +39,7 @@ public class MainMenuController : MonoBehaviour
         ClickStart();
     }
     public void ClickStart(){
-        SceneManager.LoadScene("Stage");
+        SceneManager.LoadScene("S1");
     }
 
     public void ClickInfo()
@@ -42,6 +54,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ClearScreen()
     {
+        gameEndingSaveIcon.SetActive(false);
         gameStartFolder.SetActive(false);
         gameInfoUI.SetActive(false);
     }

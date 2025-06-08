@@ -1308,7 +1308,7 @@ Transform:
   m_GameObject: {fileID: 174437353}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 12.6, z: 0}
+  m_LocalPosition: {x: -5, y: 12.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 442608485}
   cameraBorder: {fileID: 1499434075}
-  lens: 9
+  lens: 9.9
 --- !u!1001 &242215554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1886,8 +1886,8 @@ Transform:
   m_GameObject: {fileID: 292761312}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 40, z: 0}
-  m_LocalScale: {x: 60, y: 90, z: 1}
+  m_LocalPosition: {x: 30, y: 40, z: 0}
+  m_LocalScale: {x: 120, y: 90, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1338821596}
@@ -2075,7 +2075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 1145087420}
   cameraBorder: {fileID: 1852252536}
-  lens: 9
+  lens: 9.9
 --- !u!1001 &353563975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4236,7 +4236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 1534996031}
   cameraBorder: {fileID: 609512617}
-  lens: 8
+  lens: 9.9
 --- !u!1 &603127393
 GameObject:
   m_ObjectHideFlags: 0
@@ -5814,7 +5814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8907082259483209102, guid: 74d29f20efc5091489c31779cc726e79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8907082259483209102, guid: 74d29f20efc5091489c31779cc726e79, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6658,7 +6658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4576428825575163833, guid: a34d21fcbe0be4a4e9f3e5b0fbcf8832, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4576428825575163833, guid: a34d21fcbe0be4a4e9f3e5b0fbcf8832, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10470,7 +10470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 1269592604}
   cameraBorder: {fileID: 292761314}
-  lens: 8
+  lens: 7
 --- !u!1001 &1342955119
 PrefabInstance:
   m_ObjectHideFlags: 0

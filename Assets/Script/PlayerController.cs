@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
@@ -10,7 +11,9 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveInput { get; private set; }
     public bool jumpPressed { get; private set; }
 
-
+    private float jumpDuration = 0.1f; // °Á ÇÏµåÄÚµù...
+    private float time = 0f;
+    
     private PlayerInputHandler input;
     private JumpHandler jumpHandler;
     private PlayerAnimationHandler animHandler;
@@ -28,12 +31,23 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        time -= Time.fixedDeltaTime;
+        
         Vector2 moveInput = input.GetMove();
         Vector3 velocity = rb.linearVelocity;
         velocity.x = moveInput.x * moveSpeed;
+
+        if (moveInput.x == 0 && groundChecker.GetIsGrounded() && rb.linearVelocity.y > 0.1f && time <= 0)
+        {
+            Debug.Log($"velocity: {rb.linearVelocity}");
+            velocity.y = 0;
+        }
+        
         rb.linearVelocity = velocity;
 
         bool isJump = jumpHandler.TryJump(rb, groundChecker.GetIsGrounded(), input.IsJumpPressed());
+        if(isJump) time = jumpDuration;
+        
         AnimUpdate(velocity.x, isJump);
         
     }
@@ -49,10 +63,4 @@ public class PlayerController : MonoBehaviour
         //ÁÂ¿ìÆÇÁ¤
         animHandler.CheckFlip(velocityX);
     }
-
-    void Update()
-    {
-        
-    }
-
 }

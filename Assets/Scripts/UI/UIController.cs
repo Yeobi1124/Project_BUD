@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject pause;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject infoUI;
+    [SerializeField] private GameObject fadeOutUI;
     private PauseUISlider pauseUISlider;
 
     public void Awake()
@@ -20,6 +21,7 @@ public class UIController : MonoBehaviour
         pause.SetActive(true);
         pauseMenu.SetActive(false);
         infoUI.SetActive(false);
+        fadeOutUI.SetActive(false);
     }
 
     public void ClickOpenMenu(){
@@ -51,4 +53,11 @@ public class UIController : MonoBehaviour
         InitUI();
         StageManager.Instance.Restart();
     }
+
+    public void FadeOut()
+    {
+        fadeOutUI.SetActive(true);
+        Animator fadeoutAnimator = fadeOutUI.GetComponent<Animator>();
+        fadeoutAnimator.SetTrigger("FadeOut");
+    }    
 }

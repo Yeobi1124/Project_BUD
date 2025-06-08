@@ -39,7 +39,7 @@ public class MainMenuController : MonoBehaviour
         ClickStart();
     }
     public void ClickStart(){
-        SceneManager.LoadScene("S1");
+        SceneManager.LoadScene("1");
     }
 
     public void ClickInfo()

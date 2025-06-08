@@ -3,24 +3,43 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject Pause;
-    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject pause;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject infoUI;
     private PauseUISlider pauseUISlider;
 
     public void Awake()
     {
         pauseUISlider = GetComponent<PauseUISlider>();
-        pauseUISlider.Initialize(PauseMenu);
+        pauseUISlider.Initialize(pauseMenu);
+        InitUI();
+    }
+
+    private void InitUI()
+    {
+        pause.SetActive(true);
+        pauseMenu.SetActive(false);
+        infoUI.SetActive(false);
     }
 
     public void ClickOpenMenu(){
-        Pause.SetActive(false);
+        pause.SetActive(false);
         pauseUISlider.UIShow();
     }
 
     public void ClickResume(){
-        Pause.SetActive(true);
+        pause.SetActive(true);
         pauseUISlider.UIHide();
+    }
+
+    public void ClickInfoUI()
+    {
+        infoUI.SetActive(true);
+    }
+
+    public void ClickInfoOff()
+    {
+        infoUI.SetActive(false);
     }
 
     public void ClickExit(){
@@ -28,6 +47,8 @@ public class UIController : MonoBehaviour
     }
 
     public void ClickRestart(){
+        pauseUISlider.UIHide();
+        InitUI();
         StageManager.Instance.Restart();
     }
 }
